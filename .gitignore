@@ -1,0 +1,6 @@
+# Gitignore to ignore usual build file names
+_build/
+builddir/
+build/
+debug/
+release/
