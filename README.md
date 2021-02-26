@@ -14,6 +14,8 @@ Check out [USAGE](USAGE.md).
 
 Fedora-specific builds exist, and are maintained in [Fedora COPR](https://copr.fedorainfracloud.org/coprs/gauthamkrishna9991/sycontainer/)
 
+Builds exist for `x86_64` (64-bit x86) and `aarch64` (64-bit ARM).
+
 To install it:
 1.  Enable the Fedora COPR Repository:
 
@@ -28,7 +30,6 @@ To install it:
     sudo dnf install sycontainer -y
     ```
 
-
 For Other Distributions
 
 Make sure to install [`GCC`](https://gcc.gnu.org/), [`Meson`](https://mesonbuild.com/) and [`Ninja`](https://ninja-build.org/) on your system **before starting**.
@@ -37,7 +38,7 @@ Make sure to install [`GCC`](https://gcc.gnu.org/), [`Meson`](https://mesonbuild
 ```
 sudo apt update && sudo apt install build-essential pkg-config meson ninja -y
 ```
-### Fedora and RHEL-based distributions
+### Fedora and RHEL-based distributions (for building from source)
 ```bash
 sudo dnf install "@C Development Tools and Libraries" meson ninja-build -y
 ```
