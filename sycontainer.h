@@ -76,5 +76,12 @@ double SYCONTAINER_PUBLIC *syc_getdouble(sycontainer *container, double *db);
 
 bool SYCONTAINER_PUBLIC syc_isstr(sycontainer *container);
 
+char SYCONTAINER_PUBLIC *syc_getstr(sycontainer *container);
+
+bool SYCONTAINER_PUBLIC syc_isgenc(sycontainer *container);
+
+void SYCONTAINER_PUBLIC *syc_getgenc(sycontainer *container, void *genc);
+
+
 // Make sure to free this pointer after using it.
 char SYCONTAINER_PUBLIC *syc_getstr(sycontainer *container);
