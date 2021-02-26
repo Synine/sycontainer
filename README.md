@@ -4,6 +4,10 @@ C Library for a heterogenous data-structure container that can hold multiple typ
 
 In cases where one needs to write data-structures where heterogenous data needs to be saved, one can use this data-structure to implement the heterogenity of the data-structure by using the abstractions that implement it, and focus on writing the data-structures more.
 
+## Usage
+
+Check out [USAGE](USAGE.md).
+
 ## Installation
 
 Make sure to install [`GCC`](https://gcc.gnu.org/), [`Meson`](https://mesonbuild.com/) and [`Ninja`](https://ninja-build.org/) on your system **before starting**.

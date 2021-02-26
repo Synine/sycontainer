@@ -157,14 +157,19 @@ bool syc_isstr(sycontainer *container) {
 }
 
 // MAKE SURE TO FREE THE STRING AFTER USING IT
-char *syc_getstr(sycontainer *container) {
+char *syc_getstr(sycontainer *container, char *str) {
     if (!syc_isstr(container)) return NULL;
-    char *retnstr = (char*)malloc(sizeof(char) * container->datasize);
+    char* retnstr = NULL;
+    if (str == NULL) {
+        retnstr = (char*)malloc(sizeof(char) * container->datasize);
+    } else {
+        retnstr = str;
+    }
     memcpy(retnstr, container->contents.str, sizeof(char) * container->datasize);
     return retnstr;
 }
 
-bool syc_isgenc(sycontainer *container) {
+bool syc_isgeneric(sycontainer *container) {
     if (container == NULL) return false;
     if (container->ctype != SY_GENERIC) {
         return false;
@@ -172,7 +177,7 @@ bool syc_isgenc(sycontainer *container) {
     return true;
 }
 
-void *syc_getgenc(sycontainer *container, void *genc) {
+void *syc_getgeneric(sycontainer *container, void *genc) {
     if (!syc_isgenc(container)) return NULL;
     void* retnval = NULL;
     if (genc == NULL) {

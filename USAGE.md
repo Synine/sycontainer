@@ -78,14 +78,46 @@ Do understand that it can't hold format-modified variables like `long int`, `sho
 
     NOTE: Since destruction of variables use dynamic-allocation techniques, **one is not encouraged to use it on real-time systems**, as it can cause unintended performance hit. **REFRAIN FROM DESTROYING VARIABLES IN REAL-TIME PARTS OF CODE THAT CASE.**
 
-3. `syc_is<type>`: This returns a boolean on whether or not a container is of a particular given type.
+3. `syc_is<type>`: This returns a **boolean** on whether or not a container is of a particular given type.
 
-    **NOTE**: For cases with multiple data type cases, stick with using `switch` statments with `container->ctype` as paramaeter, rather than use mutliple if-else statements for finding the type.
+    **NOTE**: For cases with multiple data type cases, stick with using `switch` statments with `container->ctype` as parameter, rather than use mutliple if-else statements for finding the type.
 
-    Functions:
+    ### Functions
+
     1.  `syc_isempty(sycontainer *container)`: This checks whether the container is empty (or null, or is a null-pointer (`NULL` or `0x00`)) or not.
     2.  `syc_ischar(sycontainer *container)`: This checks whether the container holds a `char` or not.
     3.  `syc_isint(sycontainer *container)`: This checks whether the container contains an `int` or not.
     4.  `syc_isfloat(sycontainer *container)`: This checks whether the container contains a `float` (single precision floating-point number) or not.
     5.  `syc_isdouble(sycontainer *container)`: This checks whether the container contains a `double` (double precision floating-point number) or not.
     6.  `syc_isstr(sycontainer *container)`: This checks whether the container contains a string (`char` array) or not.
+    7.  `syc_isgeneric(sycontainer *container)`: This checks whether the container contains a generic pointer (`genc` or `generic` pointer, can hold any pointer, as long as size is given while creation).
+
+4.  `syc_get<type>`: This returns values, as deep-copy to pointer values in the sycontainer, or returns a new pointer.
+
+    **NOTE: REMEMBER TO `free` the pointer IF you don't pass in the variables in. This also makes a massive performance difference, if you allow the function itself to create a new pointer.**
+
+    ### Functions:
+
+    1.  `char *syc_getchar(sycontainer *container, char *ch)`
+        
+        This returns a pointer to a character. If a character pointer is given, it populates the location of that pointer with the container given.
+    
+    2.  `int *syc_getint(sycontainer *container, int *in)`
+
+        This returns a pointer to an integer. If an integer pointer is give, it populates the location of that pointer with the container given.
+
+    3.  `float *syc_getfloat(sycontainer *container, float *ft)`
+
+        This returns a pointer to a single-precision floating point number (`float` in C). It populates the given parameter pointer, if given.
+
+    4.  `double *syc_getdouble(sycontainer *container, double *db)`
+
+        This returns a pointer to a double-precision floating point number (`double` in C). It populates the given parameter pointer, if given.
+
+    5.  `char *syc_getstr(sycontainer *container, char *str)`
+
+        This returns a pointer to a string (`char*` in C). It populates the given parameter pointer, if given.
+
+    6.  `void *syc_getgeneric(sycontainer *container, void *genc)`
+
+        This returns a pointer to any object (`void*` in C). It populates the given parameter pointer, if given.
