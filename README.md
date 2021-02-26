@@ -8,13 +8,11 @@ In cases where one needs to write data-structures where heterogenous data needs 
 
 Check out [USAGE](USAGE.md).
 
-## Installation
-
-### For Fedora Distributions (through COPR)
+## Installation on Fedora Distributions (through COPR)
 
 Fedora-specific builds exist, and are maintained in [Fedora COPR](https://copr.fedorainfracloud.org/coprs/gauthamkrishna9991/sycontainer/)
 
-Builds exist for `x86_64` (64-bit x86) and `aarch64` (64-bit ARM)
+Builds exist for `x86_64` (64-bit x86/'Desktop') and `aarch64` (64-bit ARM)
 
 To install it:
 1.  Enable the Fedora COPR Repository:
@@ -29,7 +27,7 @@ To install it:
     sudo dnf install sycontainer -y
     ```
 
-### For Other Distributions (build from source)
+## Installation on all distributions (build from source)
 
 Make sure to install [`GCC`](https://gcc.gnu.org/), [`Meson`](https://mesonbuild.com/) and [`Ninja`](https://ninja-build.org/) on your system **before starting**.
 
@@ -60,8 +58,14 @@ If you want to keep your downloads directory clean, extract the archive to somew
 
 ## Uninstalling
 
-**Make sure you DON'T remove the directory you used to install it.**
+### For Fedora on COPR
+```bash
+sudo dnf remove sycontainer -y
+```
 
+### For Fedora builds or other distributions
+
+**Make sure you DON'T remove the directory you used to install it.**
 Open a terminal window in the installation directory and run the following command.
 ```bash
 ./uninstall.sh
