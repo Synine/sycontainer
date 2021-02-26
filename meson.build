@@ -1,5 +1,5 @@
 project('sycontainer', 'c',
-  version : '1.0',
+  version : '1.0_BETA2',
   default_options : [
     'warning_level=3'
   ]
@@ -15,9 +15,7 @@ shlib = shared_library('sycontainer', 'sycontainer.c',
   gnu_symbol_visibility : 'hidden',
 )
 
-test_exe = executable('sycontainer_test', 'sycontainer_test.c',
-  link_with : shlib)
-test('sycontainer', test_exe)
+subdir('test')
 
 # Make this library usable as a Meson subproject.
 sycontainer_dep = declare_dependency(
@@ -35,9 +33,10 @@ pkg_mod.generate(
   description : 'Container for multiple types of data',
   subdirs : 'sycontainer',
   libraries : shlib,
-  version : '0.1',
+  version : '1.0_BETA2',
 )
 
-# Generating spec templates for RPM files
+# distribution-specific/build-specific files
+# Generate Spec for RPM
 rpm = import('rpm')
 rpm.generate_spec_template()

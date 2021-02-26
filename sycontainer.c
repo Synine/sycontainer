@@ -26,10 +26,12 @@ sycontainer *syc_create(
         memcpy(&(newcontainer->contents.db), data, newcontainer->datasize);
     } else if (ctype == SY_STRING) {
         newcontainer->datasize = sizeof(char) * datasize;
-        memcpy(&(newcontainer->contents.str), data, newcontainer->datasize);
+        newcontainer->contents.str = (char*)malloc(newcontainer->datasize);
+        memcpy(newcontainer->contents.str, data, newcontainer->datasize);
     } else if (ctype == SY_GENERIC) {
         newcontainer->datasize = datasize;
-        memcpy(&(newcontainer->contents.genc), data, newcontainer->datasize);
+        newcontainer->contents.genc = (void*)malloc(newcontainer->datasize);
+        memcpy(newcontainer->contents.genc, data, newcontainer->datasize);
     } else {
         newcontainer->datasize = 0;
         newcontainer->contents.genc = NULL;
@@ -77,7 +79,7 @@ bool syc_ischar(sycontainer *container) {
 // as not doing that can cause memory leaks.
 // THIS APPLIES FOR ALL syc_get<TYPE> functions
 char *syc_getchar(sycontainer *container, char* ch) {
-    if (!syc_ischar(container)) return NULL;
+    if (!syc_ischar(container)) return ch;
     char* retnval;
     if (ch == NULL) {
         retnval = (char*)malloc(sizeof(char));
@@ -97,7 +99,7 @@ bool syc_isint(sycontainer *container) {
 }
 
 int *syc_getint(sycontainer *container, int* in) {
-    if (!syc_isint(container)) return NULL;
+    if (!syc_isint(container)) return in;
     int* retnval;
     if (in == NULL) {
         retnval = (int*)malloc(sizeof(int));
@@ -117,7 +119,7 @@ bool syc_isfloat(sycontainer *container) {
 }
 
 float *syc_getfloat(sycontainer *container, float *ft) {
-    if (!syc_isfloat(container)) return NULL;
+    if (!syc_isfloat(container)) return ft;
     float *retnval;
     if (ft == NULL) {
         retnval = (float*)malloc(sizeof(float));
@@ -137,7 +139,7 @@ bool syc_isdouble(sycontainer *container) {
 }
 
 double *syc_getdouble(sycontainer *container, double *db) {
-    if (!syc_isdouble(container)) return NULL;
+    if (!syc_isdouble(container)) return db;
     double* retnval;
     if (db == NULL) {
         retnval = (double*)malloc(sizeof(double));
@@ -158,7 +160,7 @@ bool syc_isstr(sycontainer *container) {
 
 // MAKE SURE TO FREE THE STRING AFTER USING IT
 char *syc_getstr(sycontainer *container, char *str) {
-    if (!syc_isstr(container)) return NULL;
+    if (!syc_isstr(container)) return str;
     char* retnstr = NULL;
     if (str == NULL) {
         retnstr = (char*)malloc(sizeof(char) * container->datasize);
@@ -178,7 +180,7 @@ bool syc_isgeneric(sycontainer *container) {
 }
 
 void *syc_getgeneric(sycontainer *container, void *genc) {
-    if (!syc_isgeneric(container)) return NULL;
+    if (!syc_isgeneric(container)) return genc;
     void* retnval = NULL;
     if (genc == NULL) {
         retnval = (void*)malloc(container->datasize);
