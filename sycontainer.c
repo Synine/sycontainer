@@ -178,7 +178,7 @@ bool syc_isgeneric(sycontainer *container) {
 }
 
 void *syc_getgeneric(sycontainer *container, void *genc) {
-    if (!syc_isgenc(container)) return NULL;
+    if (!syc_isgeneric(container)) return NULL;
     void* retnval = NULL;
     if (genc == NULL) {
         retnval = (void*)malloc(container->datasize);
