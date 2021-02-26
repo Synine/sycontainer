@@ -4,3 +4,5 @@ builddir/
 build/
 debug/
 release/
+# This is specifically for whenever the program doesn't work properly.
+release_x86_64/
