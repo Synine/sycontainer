@@ -10,6 +10,27 @@ Check out [USAGE](USAGE.md).
 
 ## Installation
 
+### For Fedora Distributions (through COPR)
+
+Fedora-specific builds exist, and are maintained in [Fedora COPR](https://copr.fedorainfracloud.org/coprs/gauthamkrishna9991/sycontainer/)
+
+To install it:
+1.  Enable the Fedora COPR Repository:
+
+    ```bash
+    sudo dnf copr enable gauthamkrishna9991/sycontainer
+
+    ```
+
+2.  Install `sycontainer` using the following commmand
+
+    ```bash
+    sudo dnf install sycontainer -y
+    ```
+
+
+For Other Distributions
+
 Make sure to install [`GCC`](https://gcc.gnu.org/), [`Meson`](https://mesonbuild.com/) and [`Ninja`](https://ninja-build.org/) on your system **before starting**.
 
 ### Ubuntu and other Debian-based Distributions

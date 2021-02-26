@@ -1,5 +1,5 @@
 project('sycontainer', 'c',
-  version : '1.0_BETA2',
+  version : '1.0.0',
   default_options : [
     'warning_level=3'
   ]
@@ -33,7 +33,7 @@ pkg_mod.generate(
   description : 'Container for multiple types of data',
   subdirs : 'sycontainer',
   libraries : shlib,
-  version : '1.0_BETA2',
+  version : '1.0.0',
 )
 
 # distribution-specific/build-specific files
