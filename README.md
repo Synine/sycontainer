@@ -78,16 +78,22 @@ To Install it:
 2.  Install the library
 
     ```bash
-    sudo zypper ref && sudo zypper install sycontainer-devel
+    sudo zypper ref && sudo zypper in sycontainer-devel -y
     ```
-
 ### 
 
 ## Uninstalling
 
-### For Fedora on COPR
+### For Fedora and RHEL
 ```bash
 sudo dnf remove sycontainer -y
+sudo dnf copr remove gauthamkrishna9991/sycontainer
+```
+
+### For OpenSUSE on COPR
+```bash
+sudo zypper rm sycontainer -y
+sudo zypper rr gauthamkrishna9991/sycontainer
 ```
 
 ### For source-based builds
