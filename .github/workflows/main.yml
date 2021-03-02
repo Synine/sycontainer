@@ -3,7 +3,9 @@ name: sycontainer test
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 # 2 jobs, both for Ubuntu and Fedora Testing
 jobs:
