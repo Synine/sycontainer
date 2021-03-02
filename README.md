@@ -61,7 +61,7 @@ To install it:
     sudo dnf install sycontainer-devel -y
     ```
 
-### For OpenSUSE Leap 15.1/15.2/ OpenSUSE Tumbleweed
+### For OpenSUSE Leap 15.1 / Leap 15.2 / Tumbleweed
 
 Builds exist for `x86_64` and `aarch64`
 
