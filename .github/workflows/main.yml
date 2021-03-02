@@ -21,6 +21,8 @@ jobs:
       with:
         python-version: '3.x'
     # Installs All Dependencies for Ubuntu
+    - name: Install Meson and Ninja
+      run:  pip install meson ninja
     - name: Install Dependencies
       run:  sudo apt-get install build-essential meson ninja -y
     - name: Setup Build Directory
@@ -35,10 +37,10 @@ jobs:
         name: Ubuntu_Test_Log
         path: _build/meson-logs/testlog.txt
   fedora:
-    runs-on: fedora-latest
+    runs-on: fedora
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-python@v1
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
       with:
         python-version: '3.x'
     # Installs all dependencies for Ubuntu
@@ -50,7 +52,7 @@ jobs:
         CC: gcc
     - name: Build & Test Library
       run:  meson test -C _build/
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v2
       if: failure()
       with:
         name: Fedora_Test_Log
