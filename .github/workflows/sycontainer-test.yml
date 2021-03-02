@@ -1,0 +1,58 @@
+# Testing the library `sycontainer`.
+name: sycontainer test
+
+on:
+  push:
+    paths:
+      - "**.c"
+      - "**.h"
+      - "meson.build"
+
+# 2 jobs, both for Ubuntu and Fedora Testing
+jobs:
+  # Ubuntu
+  ubuntu:
+    # The type of runner that the job will run on
+    runs-on: mesonbuild/ubuntu-rolling
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    # Installs All Dependencies for Ubuntu
+    - name: Install Dependencies
+      run:  sudo apt-get install build-essential -y
+    - name: Setup Build Directory
+      run:  meson setup _build
+      env:
+        CC: gcc
+    - name: Build & Test Library
+      run:  meson test -C _build
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: Ubuntu_Test_Log
+        path: _build/meson-logs/testlog.txt
+  fedora:
+    runs-on: mesonbuild/fedora
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    # Installs all dependencies for Ubuntu
+    - name: Install Dependencies
+      run:  sudo dnf install "@C Development Tools and Libraries" -y
+    - name: Setup Build Directory
+      run:  meson setup _build
+      env:
+        CC: gcc
+    - name: Build & Test Library
+      run:  meson test -C _build/
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: Fedora_Test_Log
+        path: _build/meson-logs/testlog.txt
