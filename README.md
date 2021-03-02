@@ -24,7 +24,7 @@ To install it:
 2.  Install `sycontainer` using the following commmand
 
     ```bash
-    sudo dnf install sycontainer -y
+    sudo dnf install sycontainer-devel -y
     ```
 
 ## Installation on all distributions (build from source)
