@@ -84,13 +84,13 @@ To Install it:
 
 ## Uninstalling
 
-### For Fedora and RHEL
+### For Fedora & RHEL
 ```bash
 sudo dnf remove sycontainer -y
 sudo dnf copr remove gauthamkrishna9991/sycontainer
 ```
 
-### For OpenSUSE on COPR
+### For OpenSUSE (COPR)
 ```bash
 sudo zypper rm sycontainer -y
 sudo zypper rr gauthamkrishna9991/sycontainer
