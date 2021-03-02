@@ -8,26 +8,9 @@ In cases where one needs to write data-structures where heterogenous data needs 
 
 Check out [USAGE](USAGE.md).
 
-## Installation on Fedora Distributions (through COPR)
-
-Fedora-specific builds exist, and are maintained in [Fedora COPR](https://copr.fedorainfracloud.org/coprs/gauthamkrishna9991/sycontainer/)
-
-Builds exist for `x86_64` (64-bit x86/'Desktop') and `aarch64` (64-bit ARM)
-
-To install it:
-1.  Enable the Fedora COPR Repository:
-
-    ```bash
-    sudo dnf copr enable gauthamkrishna9991/sycontainer
-    ```
-
-2.  Install `sycontainer` using the following commmand
-
-    ```bash
-    sudo dnf install sycontainer-devel -y
-    ```
-
 ## Installation on all distributions (build from source)
+
+**Select RPM-based distributions (Fedora, OpenSUSE, Mageia, CentOS Stream) have repositories which one can use to install the library. Check [here](#installation-on-rpm-based-distributions-through-copr)**
 
 Make sure to install [`GCC`](https://gcc.gnu.org/), [`Meson`](https://mesonbuild.com/) and [`Ninja`](https://ninja-build.org/) on your system **before starting**.
 
@@ -56,6 +39,50 @@ Make sure to **NOT** remove this directory, nor the generated `_build` directory
 
 If you want to keep your downloads directory clean, extract the archive to somewhere where it's more organized and repeat Step `3` (above) inside it.
 
+## Installation on RPM-based Distributions (through COPR)
+
+
+RPM-specific builds exist, and are maintained in [Fedora COPR](https://copr.fedorainfracloud.org/coprs/gauthamkrishna9991/sycontainer/)
+
+### For Fedora, RHEL 8 and CentOS Stream
+
+Builds exist for `x86_64` (64-bit x86/'Desktop') and `aarch64` (64-bit ARM)
+
+To install it:
+1.  Enable the Fedora COPR Repository:
+
+    ```bash
+    sudo dnf copr enable gauthamkrishna9991/sycontainer
+    ```
+
+2.  Install `sycontainer` using the following commmand
+
+    ```bash
+    sudo dnf install sycontainer-devel -y
+    ```
+
+### For OpenSUSE Leap 15.1/15.2/ OpenSUSE Tumbleweed
+
+Builds exist for `x86_64` and `aarch64`
+
+To Install it:
+1.  Enable the Zypper Repository Provided by COPR
+    #### For OpenSUSE Leap 15.2
+    ```bash
+    sudo zypper ar https://copr-be.cloud.fedoraproject.org/results/gauthamkrishna9991/sycontainer/opensuse-leap-15.2-$(arch)/ gauthamkrishna9991/sycontainer
+    ```
+    #### For OpenSUSE Tumbleweed
+    ```bash
+    sudo zypper ar https://copr-be.cloud.fedoraproject.org/results/gauthamkrishna9991/sycontainer/opensuse-tumbleweed-$(arch)/ gauthamkrishna9991/sycontainer
+    ```
+2.  Install the library
+
+    ```bash
+    sudo zypper ref && sudo zypper install sycontainer-devel
+    ```
+
+### 
+
 ## Uninstalling
 
 ### For Fedora on COPR
@@ -63,7 +90,7 @@ If you want to keep your downloads directory clean, extract the archive to somew
 sudo dnf remove sycontainer -y
 ```
 
-### For Fedora builds or other distributions
+### For source-based builds
 
 **Make sure you DON'T remove the directory you used to install it.**
 Open a terminal window in the installation directory and run the following command.
