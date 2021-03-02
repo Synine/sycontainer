@@ -3,10 +3,7 @@ name: sycontainer test
 
 on:
   push:
-    paths:
-      - "**.c"
-      - "**.h"
-      - "meson.build"
+    branches: [ $default-branch ]
 
 # 2 jobs, both for Ubuntu and Fedora Testing
 jobs:
@@ -17,8 +14,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-python@v1
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
       with:
         python-version: '3.x'
     # Installs All Dependencies for Ubuntu
