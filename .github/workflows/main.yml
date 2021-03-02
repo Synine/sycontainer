@@ -12,7 +12,7 @@ jobs:
   # Ubuntu
   ubuntu:
     # The type of runner that the job will run on
-    runs-on: mesonbuild/ubuntu-rolling
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -35,7 +35,7 @@ jobs:
         name: Ubuntu_Test_Log
         path: _build/meson-logs/testlog.txt
   fedora:
-    runs-on: mesonbuild/fedora
+    runs-on: fedora-latest
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-python@v1
