@@ -1,5 +1,7 @@
 # Sycontainer
 
+[![sycontainer test](https://github.com/Synine/sycontainer/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Synine/sycontainer/actions/workflows/main.yml)
+
 C Library for a heterogenous data-structure container that can hold multiple types of data.
 
 In cases where one needs to write data-structures where heterogenous data needs to be saved, one can use this data-structure to implement the heterogenity of the data-structure by using the abstractions that implement it, and focus on writing the data-structures more.
