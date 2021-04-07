@@ -1,5 +1,7 @@
 # Sycontainer
 
+[![CodeFactor](https://www.codefactor.io/repository/github/synine/sycontainer/badge/main)](https://www.codefactor.io/repository/github/synine/sycontainer/overview/main)
+
 [![sycontainer test](https://github.com/Synine/sycontainer/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Synine/sycontainer/actions/workflows/main.yml)
 
 C Library for a heterogenous data-structure container that can hold multiple types of data.
