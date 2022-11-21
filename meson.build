@@ -36,7 +36,3 @@ pkg_mod.generate(
   version : '1.0.0',
 )
 
-# distribution-specific/build-specific files
-# Generate Spec for RPM
-rpm = import('rpm')
-rpm.generate_spec_template()
